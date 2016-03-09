@@ -31,4 +31,5 @@ class AdminController extends Controller
 
         return $this->_adminRepo->signin();
     }
+
 }
