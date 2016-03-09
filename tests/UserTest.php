@@ -16,9 +16,13 @@ class UserTest extends TestCase
     {
         $this->visit('/')->see('welcome');
     }
+
     /** @test **/
     public function should_see_signin(){
         $this->visit('/getsignin')
             ->see('Sign in');
     }
+
+    /** @test **/
+
 }
