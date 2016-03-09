@@ -53,5 +53,4 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'AdminController@postsignin',
         'as' => 'admin.postsignin'
     ]);
-
 });
