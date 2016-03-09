@@ -31,9 +31,9 @@ class AdminController extends Controller
     public function postsignin(Request $request){
 
         if($this->_adminRepo->signin($request)):
-        return redirect()->route('admin.dashboard')
-            ->with([
-                'message' => 'Success Signed In']);
+            return redirect()->route('admin.dashboard')
+                ->with([
+                    'message' => 'Success Signed In']);
         endif;
 
         return redirect()->back()
