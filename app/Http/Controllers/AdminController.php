@@ -9,12 +9,12 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
-    protected  $adminRepo;
+    protected  $_adminRepo;
     /**
      * @param AdminRepositoryInterface $adminRepo
      */
     public function __construct(AdminRepositoryInterface $adminRepo){
-        $this->adminRepo = $adminRepo;
+        $this->_adminRepo = $adminRepo;
     }
 
     public function getdashboard(){
@@ -28,6 +28,7 @@ class AdminController extends Controller
     }
 
     public function postsignin(Request $request){
-        return view('admin.index');
+
+        return $this->_adminRepo->signin();
     }
 }

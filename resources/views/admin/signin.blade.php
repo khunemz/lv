@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
 
-    <form class="form-signin" action="{{ route('postsignin') }}" method="post">
+    <form class="form-signin" action="{{ route('admin.postsignin') }}" method="post">
         <h4>Sign in</h4>
         <input name="email" type="text" class="form-control" placeholder="Email"/>
         <input name="password" class="form-control" type="password" placeholder="Password"/>

@@ -29,8 +29,7 @@ class UserTest extends TestCase
             ->type('m@example.com', 'email')
             ->type('123456' , 'password')
             ->press('Sign in')
-            ->see('admin.dashboard')
-            ->onPage('/admin/dashboard');
+            ->see('Singin Repository');
     }
 
 }
