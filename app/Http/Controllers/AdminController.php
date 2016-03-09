@@ -17,14 +17,15 @@ class AdminController extends Controller
         $this->middleware('Admin', ['except'=>['getsignin']]);
     }
 
+    //GET: admin/index
     public function getindex(){
         return $this->_adminRepo->index();
     }
-
+    //GET: getsignin
     public function getsignin(){
         return view('admin.signin');
     }
-
+    //POST: postsignin
     public function postsignin(Request $request){
 
         if($this->_adminRepo->signin($request)):
@@ -32,6 +33,14 @@ class AdminController extends Controller
         endif;
 
         return redirect()->route('admin.getsignin');
+    }
+
+    //GET: getsignout
+    public function getsignout(){
+        if($this->_adminRepo->signout()):
+            return redirect()->route('admin.getsignin');
+        endif;
+        return redirect()->route('admin.index');
     }
 
 

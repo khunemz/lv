@@ -52,7 +52,11 @@ class UserTest extends TestCase
 
     /** @test */
     public function signout_should_redirect(){
-        $this->visit('/signout')
+        $this->visit('/getsignin')
+            ->type('1@m.com', 'email')
+            ->type('123456' , 'password')
+            ->press('Sign in')
+            ->visit('http://localhost:8000/getsignout')
             ->see('Sign in'); //on /getsignin
     }
 

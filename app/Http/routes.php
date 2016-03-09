@@ -53,4 +53,9 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'AdminController@postsignin',
         'as' => 'admin.postsignin'
     ]);
+
+    Route::get('getsignout', [
+        'uses' => 'AdminController@getsignout',
+        'as' => 'admin.signout'
+    ]);
 });
