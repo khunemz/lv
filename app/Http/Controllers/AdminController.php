@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function __construct(AdminRepositoryInterface $adminRepo){
         $this->_adminRepo = $adminRepo;
-        //$this->middleware('Admin', ['except'=>['getsignin']]);
+        $this->middleware('Admin', ['except'=>['getsignin']]);
     }
 
     public function getindex(){
@@ -33,5 +33,7 @@ class AdminController extends Controller
 
         return redirect()->route('admin.getsignin');
     }
+
+
 
 }
