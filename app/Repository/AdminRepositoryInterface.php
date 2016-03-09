@@ -1,9 +1,9 @@
 <?php
 namespace App;
 
-use App\Http\Requests\Request;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 
 interface AdminRepositoryInterface {
+    public function index();
     public function signin(Request $request);
 }

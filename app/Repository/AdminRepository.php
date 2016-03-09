@@ -2,15 +2,15 @@
 namespace App;
 
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Request;
-use App\Http\Controllers;
+use Illuminate\Http\Request;
 
 class AdminRepository implements AdminRepositoryInterface  {
+
+    public function index(){
+        return view('admin.index', ['msg' => 'I am m']);
+    }
+
     public function signin(Request $request){
-        $this->validate($request, [
-            'email' => 'required|email|max:255',
-            'password' => 'required|min:6'
-        ]);
 
         return Auth::attempt([
             'email' => $request->email,

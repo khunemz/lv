@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class UserTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Test of AdminController
      *
      * @return void
      *
@@ -31,12 +31,19 @@ class UserTest extends TestCase
     }
 
     /** @test **/
-    public function login_and_redirectTo_dashboard(){
+    public function login_and_redirectTo_adminIndex(){
         $this->visit('/getsignin')
-            ->type('m@example.com', 'email')
+            ->type('1@m.com', 'email')
             ->type('123456' , 'password')
             ->press('Sign in')
             ->see('admin.index');
     }
+
+    /** @test **/
+    /* Passed */
+//    public function post_signin_should_return(){
+//        $this->visit('/postsignin')
+//            ->see('This is m');
+//    }
 
 }

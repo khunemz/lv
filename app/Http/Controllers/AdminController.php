@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\AdminRepositoryInterface;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class AdminController extends Controller
@@ -15,31 +14,24 @@ class AdminController extends Controller
      */
     public function __construct(AdminRepositoryInterface $adminRepo){
         $this->_adminRepo = $adminRepo;
-        $this->middleware('Admin', ['except'=>['getsignin']]);
+        //$this->middleware('Admin', ['except'=>['getsignin']]);
     }
 
     public function getindex(){
-        return view('admin.index');
+        return $this->_adminRepo->index();
     }
 
     public function getsignin(){
-
         return view('admin.signin');
-
     }
 
     public function postsignin(Request $request){
 
         if($this->_adminRepo->signin($request)):
-            return redirect()->route('admin.dashboard')
-                ->with([
-                    'message' => 'Success Signed In']);
+            return redirect()->route('admin.index');
         endif;
 
-        return redirect()->back()
-            ->with([
-                    'message' => 'Fail to sign in , please try again.'
-            ]);
+        return redirect()->route('admin.getsignin');
     }
 
 }

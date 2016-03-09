@@ -9,10 +9,12 @@
     <title>This is a Chutipong's website</title>
     <meta name="description" content="chutipong Website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     {!! Html::style('lib/bootstrap/dist/css/bootstrap.min.css') !!}
     {!! Html::style('lib/bootstrap/dist/css/bootstrap-theme.min.css') !!}
     {!! Html::style('css/bootstrap-custom-theme.css') !!}
     {!! Html::style('css/main.css') !!}
+
 </head>
 <body>
 <!--[if lt IE 8]>
