@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+|--------------------------------------------------------------------------
+| Application Interface and Implementation binding
+|--------------------------------------------------------------------------
+|
+|
+*/
+App::bind('App\AdminRepositoryInterface', 'App\AdminRepository');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +32,26 @@ Route::get('/', function () {
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::group(['middleware' => ['web']], function () {
+
+    //AdminController
+    Route::get('admin/dashboard', [
+        'uses' => 'AdminController@getdashboard',
+        'as' => 'admin.dashboard'
+    ]);
 
     Route::get('getsignin', [
         'uses' => 'AdminController@getsignin',
-        'as' => 'getsignin'
+        'as' => 'admin.getsignin'
+    ]);
+
+    Route::post('postsignin', [
+        'uses' => 'AdminController@postsignin',
+        'as' => 'admin.postsignin'
     ]);
 
 });

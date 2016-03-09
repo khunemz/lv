@@ -24,5 +24,13 @@ class UserTest extends TestCase
     }
 
     /** @test **/
+    public function login_and_redirectTo_dashboard(){
+        $this->visit('http://localhost:8000/getsignin')
+            ->type('m@example.com', 'email')
+            ->type('123456' , 'password')
+            ->press('Sign in')
+            ->see('admin.dashboard')
+            ->onPage('/admin/dashboard');
+    }
 
 }
