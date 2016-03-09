@@ -24,12 +24,19 @@ class UserTest extends TestCase
     }
 
     /** @test **/
+    // Try to access admin.index but middleware redirect back
+    public function should_redirect_back(){
+        $this->visit('/admin/index')
+            ->seePageIs('/getsignin');
+    }
+
+    /** @test **/
     public function login_and_redirectTo_dashboard(){
-        $this->visit('http://localhost:8000/getsignin')
+        $this->visit('/getsignin')
             ->type('m@example.com', 'email')
             ->type('123456' , 'password')
             ->press('Sign in')
-            ->see('Singin Repository');
+            ->see('admin.index');
     }
 
 }

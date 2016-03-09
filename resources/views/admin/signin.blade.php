@@ -10,4 +10,15 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
 
+    @if(Session::has('message'))
+        <span class="success">{{ Session::get('message') }}</span>
+    @endif
+
+    @if(count($errors)>0)
+        <ul class="list-unstyled">
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
 @endsection

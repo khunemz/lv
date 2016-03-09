@@ -39,9 +39,9 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 
     //AdminController
-    Route::get('admin/dashboard', [
-        'uses' => 'AdminController@getdashboard',
-        'as' => 'admin.dashboard'
+    Route::get('admin/index', [
+        'uses' => 'AdminController@getindex',
+        'as' => 'admin.index'
     ]);
 
     Route::get('getsignin', [

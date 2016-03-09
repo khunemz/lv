@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
@@ -15,9 +16,9 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->check() && auth()->user()->email == 'm@m.com'):
+        if(auth()->check() && auth()->user()):
             return $next($request);
         endif;
-            return redirect()->back();
+            return redirect()->route('admin.getsignin');
     }
 }

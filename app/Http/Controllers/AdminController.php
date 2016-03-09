@@ -15,10 +15,11 @@ class AdminController extends Controller
      */
     public function __construct(AdminRepositoryInterface $adminRepo){
         $this->_adminRepo = $adminRepo;
+        $this->middleware('Admin', ['except'=>['getsignin']]);
     }
 
-    public function getdashboard(){
-        return view('admin.dashboard');
+    public function getindex(){
+        return view('admin.index');
     }
 
     public function getsignin(){
@@ -29,7 +30,16 @@ class AdminController extends Controller
 
     public function postsignin(Request $request){
 
-        return $this->_adminRepo->signin();
+        if($this->_adminRepo->signin($request)):
+        return redirect()->route('admin.dashboard')
+            ->with([
+                'message' => 'Success Signed In']);
+        endif;
+
+        return redirect()->back()
+            ->with([
+                    'message' => 'Fail to sign in , please try again.'
+            ]);
     }
 
 }
