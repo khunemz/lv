@@ -13,7 +13,7 @@ class AdminRepository implements AdminRepositoryInterface  {
 
     public function getsignin()
     {
-        return 'getsignin';
+        return view('admin.getsignin');
     }
 
     public function postsignin(Request $request){

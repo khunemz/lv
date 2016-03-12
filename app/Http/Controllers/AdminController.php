@@ -18,10 +18,20 @@ class AdminController extends Controller
         //$this->middleware('Admin', ['except'=>['getsignin']]);
     }
 
+
+    /**
+     * @return 'users'
+     */
     public function get()
     {
         return $this->_adminRepo->get();
     }
+
+    public function getsignin()
+    {
+        return $this->_adminRepo->getsignin();
+    }
+
 
 
 }

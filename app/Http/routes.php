@@ -44,6 +44,11 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'admin.get'
     ]);
 
+    Route::get('getsignin', [
+        'uses' => 'AdminController@getsignin',
+        'as' => 'admin.getsignin'
+    ]);
+
     //BlogController(resource)
    Route::resource('blog', 'BlogController');
 

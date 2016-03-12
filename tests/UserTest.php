@@ -18,10 +18,9 @@ class UserTest extends TestCase
     }
 
     /** @test **/
-    /** Green */
-    public function should_see_signin(){
+    public function getsignin_should_see_getsignin(){
         $this->visit('/getsignin')
-            ->see('Sign in');
+            ->see('Please Sign in');
     }
 
     /** @test **/
