@@ -20,9 +20,9 @@ class BlogRepository implements BlogRepositoryInterface{
     	 *
     	 * @return Response
     	 */
-    	public function create()
+    	public function getcreate()
     	{
-    		return 'get blog\create return view blog.create';
+    		return 'get blog/create return view blog.create';
     	}
 
     	/**

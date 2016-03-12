@@ -4,7 +4,7 @@ namespace App;
 interface BlogRepositoryInterface {
 
 	public function getall();
-	public function create();
+	public function getcreate();
 	public function store();
 	public function show($id);
 	public function edit($id);

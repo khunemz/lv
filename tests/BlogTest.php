@@ -17,4 +17,9 @@ class BlogTest extends TestCase
         $this->visit('/blog')
             ->see('get blog return view blog.index');
     }
+    /** @test **/
+    public function create_should_retrieve_data(){
+        $this->visit('/blog/create')
+            ->see('get blog/create return view blog.create');
+    }
 }
