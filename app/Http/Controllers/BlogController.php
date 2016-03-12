@@ -42,7 +42,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->repo->save();
+        return $this->repo->save($request);
     }
 
     /**
@@ -64,7 +64,7 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $this->repo->getedit($id);
     }
 
     /**
@@ -76,7 +76,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->repo->patchupdate($id, $request);
     }
 
     /**
@@ -87,6 +87,6 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->repo->delete($id);
     }
 }

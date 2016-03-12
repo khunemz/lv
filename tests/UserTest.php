@@ -12,11 +12,10 @@ class UserTest extends TestCase
      * @return void
      *
     /** @test **/
-    /** Green */
-//    public function should_show_welcome()
-//    {
-//        $this->visit('/')->see('welcome');
-//    }
+    public function get_should_see_data(){
+        $this->visit('/admin')
+            ->see('khunemz');
+    }
 
     /** @test **/
     /** Green */
@@ -59,5 +58,6 @@ class UserTest extends TestCase
             ->visit('http://localhost:8000/getsignout')
             ->see('Sign in'); //on /getsignin
     }
+
 
 }

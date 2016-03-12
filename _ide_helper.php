@@ -8437,7 +8437,8 @@ namespace {
     }
 
 
-    class Route extends \Illuminate\Support\Facades\Route{
+    class
+    Route extends \Illuminate\Support\Facades\Route{
         
         /**
          * Register a new GET route with the router.

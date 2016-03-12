@@ -6,26 +6,23 @@ use Illuminate\Http\Request;
 
 class AdminRepository implements AdminRepositoryInterface  {
 
-    public function index(){
-        return view('admin.index', ['msg' => 'I am m']);
+    public function get(){
+        $users = User::all();
+        return view('admin.get', ['users' => $users]);
     }
 
-
-    /**
-     * @param Request $request
-     * @return mixed
-     */
-    public function signin(Request $request){
-
-        return Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
+    public function getsignin()
+    {
+        return 'getsignin';
     }
 
-    public function signout(){
-        return Auth::logout();
+    public function postsignin(Request $request){
+        return 'posted';
     }
+
+    public function getsignout(){
+        return 'loggedout';
+   }
 
 }
 

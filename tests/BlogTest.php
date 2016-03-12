@@ -36,7 +36,6 @@ class BlogTest extends TestCase
             ->see('get blog {id} return redirect blog.show with blog');
     }
 
-
     /** @test */
     public function tearDown(){
         Mockery::close();

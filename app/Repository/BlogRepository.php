@@ -55,7 +55,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 * @param  int  $id
     	 * @return Response
     	 */
-    	public function edit($id)
+    	public function getedit($id)
     	{
             return 'get blog {id) edit return redirect blog.show with blog';
     	}
@@ -67,7 +67,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 * @param  int  $id
     	 * @return Response
     	 */
-    	public function update($id)
+		public function patchupdate($id, Request $request)
     	{
     		return 'patch blog return redirect blog.show with blog ,msg';
     	}
@@ -79,7 +79,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 * @param  int  $id
     	 * @return Response
     	 */
-    	public function destroy($id)
+    	public function delete($id)
     	{
     		return 'delete blog return redirect blog.index with msg';
     	}

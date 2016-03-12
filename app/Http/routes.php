@@ -39,24 +39,9 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 
     //AdminController
-    Route::get('admin/index', [
-        'uses' => 'AdminController@getindex',
-        'as' => 'admin.index'
-    ]);
-
-    Route::get('getsignin', [
-        'uses' => 'AdminController@getsignin',
-        'as' => 'admin.getsignin'
-    ]);
-
-    Route::post('postsignin', [
-        'uses' => 'AdminController@postsignin',
-        'as' => 'admin.postsignin'
-    ]);
-
-    Route::get('getsignout', [
-        'uses' => 'AdminController@getsignout',
-        'as' => 'admin.signout'
+    Route::get('admin', [
+        'uses' => 'AdminController@get',
+        'as' => 'admin.get'
     ]);
 
     //BlogController(resource)
