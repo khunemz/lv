@@ -37,7 +37,7 @@ class UserTest extends TestCase
     /* Green */
     public function login_and_redirectTo_adminIndex(){
         $this->visit('/getsignin')
-            ->type('1@m.com', 'email')
+            ->type('2@m.com', 'email')
             ->type('123456' , 'password')
             ->press('Sign in')
             ->see('admin.index');

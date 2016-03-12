@@ -19,7 +19,7 @@
 |
 */
 App::bind('App\AdminRepositoryInterface', 'App\AdminRepository');
-
+App::bind('App\BlogRepositoryInterface', 'App\BlogRepository');
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +58,8 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'AdminController@getsignout',
         'as' => 'admin.signout'
     ]);
+
+    //BlogController(resource)
+   Route::resource('blog', 'BlogController');
+
 });

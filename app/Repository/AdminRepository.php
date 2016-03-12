@@ -26,4 +26,7 @@ class AdminRepository implements AdminRepositoryInterface  {
     public function signout(){
         return Auth::logout();
     }
+
 }
+
+
