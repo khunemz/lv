@@ -31,7 +31,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 *
     	 * @return Response
     	 */
-    	public function store()
+    	public function save()
     	{
     		return 'post blog return redirect blog.show with blog, msg';
     	}
@@ -43,7 +43,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 * @param  int  $id
     	 * @return Response
     	 */
-    	public function show($id)
+    	public function getById($id)
     	{
     		return 'get blog {id} return redirect blog.show with blog';
     	}

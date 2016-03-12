@@ -42,7 +42,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->repo->save();
     }
 
     /**
@@ -53,7 +53,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->repo->getById(1);
     }
 
     /**
