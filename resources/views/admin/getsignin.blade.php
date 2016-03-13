@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-
+@include('includes.flash')
     <form class="form-signin" action="{{ route('admin.postsignin') }}" method="post">
         <h4>Please Sign in</h4>
         <input name="email" type="text" class="form-control"

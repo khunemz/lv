@@ -29,6 +29,7 @@ class AdminRepository implements AdminRepositoryInterface
             'email' => $request->email,
             'password' => $request->password
         ], $remember)):
+            flash()->success('You have been logged in.');
             return redirect()->intended('/admin');
         endif;
             return redirect()->back()->withInput();
@@ -41,10 +42,8 @@ class AdminRepository implements AdminRepositoryInterface
         $user->password = bcrypt($request->password);
         $user->name = $request->name;
         if($user->save()):
-            if(Auth::login($user)):
-                return redirect()->intended('/admin');
-            endif;
-                return redirect()->route('admin.getsignin');
+            flash()->success('Successful sign up');
+            return redirect()->route('admin.getsignin');
         endif;
         return redirect()->back()->withInput();
     }

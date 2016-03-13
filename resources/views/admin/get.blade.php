@@ -1,5 +1,6 @@
 @extends('layout.master')
 @section('content')
+@include('includes.flash')
     <h4>Get</h4>
     @foreach($users as $user)
         <ul>

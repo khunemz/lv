@@ -1,5 +1,6 @@
 @extends('layout.master')
 @section('content')
+@include('includes.flash')
     <h4 style="text-align: center">Sign up</h4>
     <!-- Form of all input -->
         {!! Form::model('form-signup', [
