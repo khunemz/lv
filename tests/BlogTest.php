@@ -43,8 +43,10 @@ class BlogTest extends TestCase
     }
 
     //visit /blog/create see Create
-    public function test_method(){
-
+    /** @test */
+    public function create_should_see_create(){
+        $this->visit('/blog/create')
+            ->see('Create');
     }
 
     /** @test */

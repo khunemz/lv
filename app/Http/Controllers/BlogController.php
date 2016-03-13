@@ -40,6 +40,10 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:500',
+            'body' => 'required|max:2000'
+        ]);
         return $this->repo->save($request);
     }
 

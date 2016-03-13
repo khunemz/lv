@@ -12,7 +12,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function getall()
     	{
-    		return view('blog.index', ['blogs'=>Blog::all()]);
+    		return view('blog.index', ['blogs'=>Blog::orderby('id','desc')->get()]);
     	}
 
     	/**
@@ -23,7 +23,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function getcreate()
     	{
-    		return 'get blog/create return view blog.create';
+    		return view('blog.create');
     	}
 
     	/**
@@ -34,7 +34,15 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function save(Request $request)
     	{
-    		return 'post blog return redirect blog.show with blog, msg';
+    		$blog = new Blog;
+			$blog->title = $request->title;
+			$blog->body = $request->body;
+			if($blog->save()):
+				flash()->success('Successfully posted');
+				return redirect('blog.show')->with(['blog' => $blog]);
+			endif;
+				flash()->warning('Cannot post, please try again');
+				return redirect()->back();
     	}
 
     	/**
