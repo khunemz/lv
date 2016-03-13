@@ -85,3 +85,17 @@ body{
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+/* ============ Flash ============== */
+.alert-success {
+    max-width: 330px;
+    background: #85d0a1;
+    color: white;
+
+}
+
+.alert-warning {
+    max-width: 330px;
+    background: #f04124;
+    color: whitesmoke;
+}

@@ -1,6 +1,7 @@
 <?php
 namespace App;
-use App\Http\Requests;
+
+use Illuminate\Http\Request;
 
 class BlogRepository implements BlogRepositoryInterface{
     	/**
@@ -11,7 +12,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function getall()
     	{
-    		return 'get blog return view blog.index';
+    		return view('blog.index', ['blogs'=>Blog::all()]);
     	}
 
     	/**
@@ -31,7 +32,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 *
     	 * @return Response
     	 */
-    	public function save()
+    	public function save(Request $request)
     	{
     		return 'post blog return redirect blog.show with blog, msg';
     	}
@@ -67,7 +68,7 @@ class BlogRepository implements BlogRepositoryInterface{
     	 * @param  int  $id
     	 * @return Response
     	 */
-		public function patchupdate($id, Request $request)
+		public function update($id, Request $request)
     	{
     		return 'patch blog return redirect blog.show with blog ,msg';
     	}

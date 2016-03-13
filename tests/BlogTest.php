@@ -35,6 +35,17 @@ class BlogTest extends TestCase
         $this->visit('/blog/'.$param)
             ->see('get blog {id} return redirect blog.show with blog');
     }
+    //visit /blog see id = 1
+    /** @test */
+    public function blog_index_should_see_data(){
+        $this->visit('/blog')
+            ->see('1');
+    }
+
+    //visit /blog/create see Create
+    public function test_method(){
+
+    }
 
     /** @test */
     public function tearDown(){

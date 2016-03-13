@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 
 interface BlogRepositoryInterface {
 
@@ -10,7 +10,7 @@ interface BlogRepositoryInterface {
 	public function save(Request $request);
 	public function getById($id);
 	public function getedit($id);
-	public function patchupdate($id, Request $request);
+	public function update($id, Request $request);
 	public function delete($id);
 
 }

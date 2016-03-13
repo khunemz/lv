@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\BlogRepositoryInterface as IBlogRepository;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
 class BlogController extends Controller
 {
     protected $repo;
@@ -53,7 +51,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        return $this->repo->getById(1);
+        return $this->repo->getById($id);
     }
 
     /**

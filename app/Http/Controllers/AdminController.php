@@ -15,7 +15,7 @@ class AdminController extends Controller
      */
     public function __construct(AdminRepositoryInterface $adminRepo){
         $this->_adminRepo = $adminRepo;
-        //$this->middleware('Admin', ['except'=>['getsignin', 'getsignup']]);
+        $this->middleware('Admin', ['only'=>['get']]);
     }
 
     /**

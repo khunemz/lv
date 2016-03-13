@@ -1,16 +1,20 @@
 @if(Session::has('flash_notification.message'))
-    <div class="alert alert-{{ Session::get('flash_notification.lavel') }}">
+    <center>
+    <div class="alert alert-{{ Session::get('flash_notification.level') }}">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-            $times;</button>
+            &times;</button>
 
         {{ Session::get('flash_notification.message') }}
     </div>
+    </center>
 @endif
 
 @if(!empty($errors))
     @foreach($errors->all() as $error)
-        <ul>
-            <li>{{ $error }}</li>
+    <div class="error-block">
+        <ul class="list-unstyled">
+            <li style="text-align: center; color: red;">{{ $error }}</li>
         </ul>
+    </div>
     @endforeach
 @endif
