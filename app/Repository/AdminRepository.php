@@ -32,6 +32,8 @@ class AdminRepository implements AdminRepositoryInterface
             flash()->success('You have been logged in.');
             return redirect()->intended('/admin');
         endif;
+            flash()->warning('The email or password is invalid,
+                please try again.');
             return redirect()->back()->withInput();
     }
 
@@ -45,10 +47,13 @@ class AdminRepository implements AdminRepositoryInterface
             flash()->success('Successful sign up');
             return redirect()->route('admin.getsignin');
         endif;
+        flash()->warning('The email or password is invalid,
+                please try again.');
         return redirect()->back()->withInput();
     }
     public function getsignout(){
         Auth::logout();
+        flash()->success('You have been logged out.');
         return redirect()->route('admin.getsignin');
    }
 
