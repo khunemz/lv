@@ -54,7 +54,12 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function getById($id)
     	{
-    		return 'get blog {id} return redirect blog.show with blog';
+			$blog = Blog::find($id);
+    		if($blog):
+    			return view('blog.show', ['blog' => $blog]);
+    		endif;
+				flash()->message('Cannot show the blog.');
+				return view('errors.404');
     	}
 
     	/**

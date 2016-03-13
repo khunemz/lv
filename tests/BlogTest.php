@@ -50,6 +50,12 @@ class BlogTest extends TestCase
     }
 
     /** @test */
+    public function show_shoud_see_result(){
+        $this->visit('/blog/1')
+            ->see('1');
+    }
+
+    /** @test */
     public function tearDown(){
         Mockery::close();
     }

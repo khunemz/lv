@@ -8,5 +8,6 @@
             <li>body {{ $blog->body }}</li>
             <li>create {{ $blog->created_at }}</li>
         </ul>
+        <a href="{{ route('blog.show', ['blog' => $blog]) }}">Show</a>
     @endforeach
 @endsection
