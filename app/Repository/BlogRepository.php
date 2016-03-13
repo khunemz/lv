@@ -39,7 +39,7 @@ class BlogRepository implements BlogRepositoryInterface{
 			$blog->body = $request->body;
 			if($blog->save()):
 				flash()->success('Successfully posted');
-				return redirect('blog.show')->with(['blog' => $blog]);
+				return redirect()->route('blog.show', ['blog' => $blog]);
 			endif;
 				flash()->warning('Cannot post, please try again');
 				return redirect()->back();
