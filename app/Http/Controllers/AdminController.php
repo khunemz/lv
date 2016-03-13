@@ -15,9 +15,8 @@ class AdminController extends Controller
      */
     public function __construct(AdminRepositoryInterface $adminRepo){
         $this->_adminRepo = $adminRepo;
-        //$this->middleware('Admin', ['except'=>['getsignin']]);
+        //$this->middleware('Admin', ['except'=>['getsignin', 'getsignup']]);
     }
-
 
     /**
      * @return 'users'
@@ -39,11 +38,18 @@ class AdminController extends Controller
 
     public function postsignin(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
         return $this->_adminRepo->postsignin($request);
     }
 
     public function postsignup(Request $request)
-    {
+    {   $this->validate($request, [
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6'
+        ]);
         return $this->_adminRepo->postsignup($request);
     }
 

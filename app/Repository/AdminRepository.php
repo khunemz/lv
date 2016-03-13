@@ -5,8 +5,8 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class AdminRepository implements AdminRepositoryInterface  {
-
+class AdminRepository implements AdminRepositoryInterface
+{
     public function get(){
         $users = User::all();
         return view('admin.get', ['users' => $users]);

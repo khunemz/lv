@@ -1,11 +1,11 @@
 @extends('layout.master')
 @section('content')
-    <h4>Sign up</h4>
+    <h4 style="text-align: center">Sign up</h4>
     <!-- Form of all input -->
         {!! Form::model('form-signup', [
             'method' => 'post',
             'route' => ['admin.postsignup' , ],
-            'class' => 'form-group'
+            'class' => 'form-signup form-group'
         ]) !!}
             {!! Form::text('email', null , [
                 'class'=>'form-control',
@@ -22,7 +22,7 @@
             {!! Form::submit('Sign up', [
                 'class' => 'btn btn-success'
             ]) !!}
-            {!! Form::token() !!}
         {!! Form::close() !!}
     <!-- End : Form of all input -->
+    <h5 style="text-align: center;"><a href="{{ route('admin.getsignin') }}">Has an account ??</a></h5>
 @endsection
