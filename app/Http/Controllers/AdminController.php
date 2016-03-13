@@ -32,6 +32,24 @@ class AdminController extends Controller
         return $this->_adminRepo->getsignin();
     }
 
+    public function getsignup()
+    {
+        return $this->_adminRepo->getsignup();
+    }
 
+    public function postsignin(Request $request)
+    {
+        return $this->_adminRepo->postsignin($request);
+    }
+
+    public function postsignup(Request $request)
+    {
+        return $this->_adminRepo->postsignup($request);
+    }
+
+    public function getsignout()
+    {
+        return $this->_adminRepo->getsignout();
+    }
 
 }

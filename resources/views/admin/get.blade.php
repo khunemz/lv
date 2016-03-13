@@ -9,4 +9,17 @@
             <li>Admin ?? {{ $user->isAdmin }}</li>
         </ul>
     @endforeach
+
+    <!-- Form of all input -->
+            {!! Form::model('getsignout', [
+                'method' => 'get',
+                'route' => ['admin.getsignout'],
+                'class' => 'form-group'
+            ]) !!}
+                {!! Form::submit('Get Sign out', [
+                    'class' => 'btn btn-success'
+                ]) !!}
+                {!! Form::token() !!}
+            {!! Form::close() !!}
+        <!-- End : Form of all input -->
 @endsection

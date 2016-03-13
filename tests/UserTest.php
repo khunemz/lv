@@ -24,39 +24,16 @@ class UserTest extends TestCase
     }
 
     /** @test **/
-
-    // Try to access admin.index but middleware redirect back
-    public function should_redirect_back(){
-        $this->visit('/admin/index')
-            ->seePageIs('/getsignin');
-    }
-
-    /** @test **/
-    /* Green */
-    public function login_and_redirectTo_adminIndex(){
+    public function postsignin_should_redirect_get(){
         $this->visit('/getsignin')
-            ->type('2@m.com', 'email')
-            ->type('123456' , 'password')
             ->press('Sign in')
-            ->see('admin.index');
+            ->see('Get');
     }
-
-    /** @test **/
-    /* Green */
-//    public function post_signin_should_return(){
-//        $this->visit('/postsignin')
-//            ->see('This is m');
-//    }
 
     /** @test */
-    public function signout_should_redirect(){
-        $this->visit('/getsignin')
-            ->type('1@m.com', 'email')
-            ->type('123456' , 'password')
-            ->press('Sign in')
-            ->visit('http://localhost:8000/getsignout')
-            ->see('Sign in'); //on /getsignin
+    public function getsignup_should_show(){
+        $this->visit('/getsignup')
+            ->see('Sign up');
     }
-
 
 }
