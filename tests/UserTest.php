@@ -36,4 +36,10 @@ class UserTest extends TestCase
             ->see('Sign up');
     }
 
+
+    public function teardown()
+    {
+        Mockery::close();
+    }
+
 }

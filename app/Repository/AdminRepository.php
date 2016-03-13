@@ -31,7 +31,7 @@ class AdminRepository implements AdminRepositoryInterface  {
         ], $remember)):
             return redirect()->intended('/admin');
         endif;
-            return redirect()->back();
+            return redirect()->back()->withInput();
     }
 
     public function postsignup(Request $request)
@@ -46,7 +46,7 @@ class AdminRepository implements AdminRepositoryInterface  {
             endif;
                 return redirect()->route('admin.getsignin');
         endif;
-        return redirect()->back();
+        return redirect()->back()->withInput();
     }
     public function getsignout(){
         Auth::logout();
