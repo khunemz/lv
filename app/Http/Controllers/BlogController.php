@@ -77,8 +77,11 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        return $this->repo->patchupdate($id, $request);
+    {   $this->validate($request, [
+            'title' => 'required|max:500',
+            'body' => 'required|max:2000'
+        ]);
+        return $this->repo->update($request, $id);
     }
 
     /**

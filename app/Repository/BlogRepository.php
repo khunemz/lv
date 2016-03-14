@@ -71,19 +71,28 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function getedit($id)
     	{
-            return 'get blog {id) edit return redirect blog.show with blog';
+			$blog = Blog::find($id);
+            return view('blog.edit', ['blog'=> $blog ]);
     	}
 
     	/**
     	 * Update the specified resource in storage.
     	 * PUT /resource/{id}
-    	 *
+    	 * and $id should follow Request $request
     	 * @param  int  $id
     	 * @return Response
     	 */
-		public function update($id, Request $request)
+		public function update(Request $request, $id)
     	{
-    		return 'patch blog return redirect blog.show with blog ,msg';
+    		$blog = Blog::find($id);
+			$blog->title = $request->title;
+			$blog->body = $request->body;
+			if($blog->save()):
+				flash()->success('Updated');
+				return redirect()->route('blog.show', ['blog' => $blog]);
+			endif;
+				flash()->warning('Something wrong please try again');
+				return redirect()->back();
     	}
 
     	/**
@@ -95,6 +104,13 @@ class BlogRepository implements BlogRepositoryInterface{
     	 */
     	public function delete($id)
     	{
-    		return 'delete blog return redirect blog.index with msg';
+    		$blog=Blog::find($id);
+			if($blog->delete()):
+				flash()->success('Deleted');
+				return redirect()->route('blog.index');
+			endif;
+				flash()->error('Cannot delete');
+				return redirect()->back();
+
     	}
 }
