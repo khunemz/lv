@@ -9,6 +9,7 @@
 7. laravel-ide-helper -> Intellisense
 8. laracast generator -> Optional artisan command
 9. laracast flash -> flash message helper
+
 ## Front End ##
 1. Bootstrap
 2. JQuery
